@@ -1,0 +1,173 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.16 0.025 260);
+  --foreground: oklch(0.97 0.015 250);
+  --card: oklch(0.2 0.03 260);
+  --card-foreground: oklch(0.97 0.015 250);
+  --popover: oklch(0.21 0.03 260);
+  --popover-foreground: oklch(0.97 0.015 250);
+  --primary: oklch(0.99 0 0);
+  --primary-foreground: oklch(0.16 0.025 260);
+  --secondary: oklch(0.27 0.03 260);
+  --secondary-foreground: oklch(0.95 0.015 250);
+  --muted: oklch(0.27 0.03 260);
+  --muted-foreground: oklch(0.76 0.02 250);
+  --accent: oklch(0.32 0.035 260);
+  --accent-foreground: oklch(0.97 0.015 250);
+  --destructive: oklch(0.6 0.2 27);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(0.72 0.03 260);
+  --ring: oklch(0.78 0.09 255);
+  --focus-ring: oklch(0.78 0.09 255);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.19 0.028 260);
+  --sidebar-foreground: oklch(0.97 0.015 250);
+  --sidebar-primary: oklch(0.99 0 0);
+  --sidebar-primary-foreground: oklch(0.16 0.025 260);
+  --sidebar-accent: oklch(0.29 0.036 260);
+  --sidebar-accent-foreground: oklch(0.97 0.015 250);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.78 0.09 255);
+  --page-background: linear-gradient(
+    180deg,
+    #070b1d 0%,
+    #0b1330 40%,
+    #0f1b42 75%,
+    #13234f 100%
+  );
+}
+
+.light {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.141 0.005 285.823);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.546 0.245 262.881);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.546 0.245 262.881);
+  --focus-ring: oklch(0.546 0.245 262.881);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-primary: oklch(0.546 0.245 262.881);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.546 0.245 262.881);
+  --page-background: oklch(0.99 0 0);
+}
+
+/* Light-mode text selection: use the primary blue for the highlight background
+   with near-white text, so selected text is clearly visible in all inputs,
+   textareas, and editable content areas. */
+.light ::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Dark-mode text selection: primary is near-white (invisible on forced-white inputs),
+   so use a dark blue for a visible highlight. */
+::selection {
+  background-color: oklch(0.25 0.06 260);
+  color: #ffffff;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-focus-ring: var(--focus-ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-focus-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: var(--page-background);
+    background-attachment: fixed;
+  }
+
+  /* Keep form fields on a clean, light surface for readability against the
+     dark-blue background. Checkboxes, radios, and range sliders are excluded. */
+  input:not([type='checkbox']):not([type='radio']):not([type='range']),
+  textarea,
+  select,
+  [data-slot='select-trigger'] {
+    background-color: #ffffff !important;
+    color: #0b1026 !important;
+  }
+  input:not([type='checkbox']):not([type='radio']):not([type='range'])::placeholder,
+  textarea::placeholder {
+    color: #5b6b8c !important;
+  }
+
+  /* Ensure focus ring is clearly visible against forced-white backgrounds.
+     Override the Tailwind ring color variable directly so the box-shadow ring
+     system continues to work (smooth transitions, follows border-radius). */
+  input:not([type='checkbox']):not([type='radio']):not([type='range']):focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [data-slot='select-trigger']:focus-visible {
+    border-color: var(--focus-ring) !important;
+    --tw-ring-color: var(--focus-ring) !important;
+  }
+}
