@@ -81,17 +81,24 @@ const corsOptions = frontendOrigin
 app.use(cors(corsOptions));
 app.use(express.json({ limit: '50mb' }));
 
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    message: 'BRIEVO backend is running'
+  });
+});
+
 // Test route
 app.get("/", (req, res) => {
-    res.send("Brievo backend is running!");
+  res.send("Brievo backend is running!");
 });
 
 // API test route
 app.get("/api/test", (req, res) => {
-    res.json({
-        success: true,
-        message: "BRIEVO frontend connected to backend successfully!"
-    });
+  res.json({
+    success: true,
+    message: "BRIEVO frontend connected to backend successfully!"
+  });
 });
 
 // Authentication routes
@@ -123,15 +130,15 @@ app.use("/api/forms", formRoutes);
 // show only a sanitized message that never exposes the connection URI or
 // password, then stop.
 async function start() {
-    try {
-        await connectDatabase();
-        app.listen(PORT, () => {
-            console.log(`Server is running on http://localhost:${PORT}`);
-        });
-    } catch (err) {
-        console.error(`Failed to start server: ${safeMessage(err)}`);
-        process.exit(1);
-    }
+  try {
+    await connectDatabase();
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  } catch (err) {
+    console.error(`Failed to start server: ${safeMessage(err)}`);
+    process.exit(1);
+  }
 }
 
 start();
